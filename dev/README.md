@@ -4,6 +4,8 @@
 - [x] add project description
 - [x] sketch some layout 
 - [x] test Giphy API
+- [ ] search GIFs
+- [ ] show related
 - [ ] ...
 - [ ] document data flow
 - [ ] add next steps
@@ -14,6 +16,8 @@
 https://developers.giphy.com/explorer/
 
 https://api.giphy.com/v1/gifs/search?api_key=LeYalQ6xWLRILpnFU07EIsQSahgJblnn&q=hello+world&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips
+
+https://api.giphy.com/v1/gifs/U7OyP3QrinLv4WYgs0/related?api_key=LeYalQ6xWLRILpnFU07EIsQSahgJblnn
 
 # Giphyx
 

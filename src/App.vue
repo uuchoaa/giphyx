@@ -1,6 +1,13 @@
 <template>
   <div>
-    <pre>{{ gifs }}</pre>
+    <div>
+      <div 
+        v-for="gif in gifs" 
+        :key="gif.id" 
+      >
+        <img :src="gif.images.fixed_height.url" :alt="gif.title" />
+      </div>
+    </div>
   </div>
 </template>
 
