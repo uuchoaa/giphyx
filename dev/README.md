@@ -3,11 +3,17 @@
 - [x] add assessment description
 - [x] add project description
 - [x] sketch some layout 
-- [ ] test Giphy API
+- [x] test Giphy API
 - [ ] ...
 - [ ] document data flow
 - [ ] add next steps
 
+
+# Notes
+
+https://developers.giphy.com/explorer/
+
+https://api.giphy.com/v1/gifs/search?api_key=LeYalQ6xWLRILpnFU07EIsQSahgJblnn&q=hello+world&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips
 
 # Giphyx
 
