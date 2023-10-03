@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giphy Search App</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+<!-- Header -->
+<div class="bg-blue-600 text-white text-center py-4">
+    <h1 class="text-2xl font-bold">Giphy Search App</h1>
+</div>
+
+<!-- Search Bar -->
+<div class="mt-6 mb-4 px-4">
+    <div class="max-w-xl mx-auto">
+        <input type="text" placeholder="Search for GIFs..." class="w-full p-2 border rounded">
+        <button class="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Search</button>
+    </div>
+</div>
+
+<!-- GIF Grid -->
+<div class="px-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <!-- Placeholder for GIFs -->
+        <div class="bg-gray-300 h-24 flex items-center justify-center">
+            <span class="text-gray-600">Image Placeholder</span>
+        </div>
+        <div class="bg-gray-300 h-24 flex items-center justify-center">
+            <span class="text-gray-600">Image Placeholder</span>
+        </div>
+        <div class="bg-gray-300 h-24 flex items-center justify-center">
+            <span class="text-gray-600">Image Placeholder</span>
+        </div>
+
+        <!-- The 'border-4 border-blue-500' classes are used to represent a selected GIF -->
+        <div class="bg-gray-300 h-24 flex items-center justify-center border-4 border-blue-500">
+            <span class="text-gray-600">Image Placeholder</span>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Related GIFs Grid -->
+<div class="px-4">
+    <h2 class="text-xl font-bold mb-4">Related GIFs</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <!-- Placeholder for related GIFs -->
+        <div class="bg-gray-300 h-32 flex items-center justify-center">
+            <span class="text-gray-600">Related Image Placeholder</span>
+        </div>
+        <!-- ... Other related GIFs ... -->
+    </div>
+</div>
+
+</body>
+</html>
