@@ -25,7 +25,6 @@ export default {
   },
   methods: {
     selectGif(gif) {
-      console.log('selectGif:', gif)
       this.selectedGifId = gif.id;
       this.$emit('selected', gif);
     }

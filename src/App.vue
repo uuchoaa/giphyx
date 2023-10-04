@@ -48,12 +48,7 @@ export default {
   },
   methods: {
     async loadRelated(gif) {
-      console.log('loadRelated', gif)
-
-      const query = {
-        q: gif.title
-      }
-
+      const query = { q: gif.title }
       this.relatedGifs = await GiphyAPIService.search(query)
     },
 
