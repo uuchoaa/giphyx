@@ -8,7 +8,7 @@
 
     <!-- Search Bar -->
     <div class="mt-6 px-4">
-      <SearchComponent @search="searchGifs" />
+      <SearchComponent @submited="searchGifs" />
     </div>
 
     <!-- Search GIF Grid -->

@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     handleSubmit() {
-      this.$emit('search', { q: this.searchTerm });
+      this.$emit('submited', { q: this.searchTerm });
     }
   }
 };
