@@ -4,8 +4,11 @@
 - [x] add project description
 - [x] sketch some layout 
 - [x] test Giphy API
-- [ ] search GIFs
+- [x] search GIFs
 - [ ] show related
+- [ ] refactor: add componenent search
+- [ ] refactor: add componenent grid
+- [ ] document tests 
 - [ ] ...
 - [ ] document data flow
 - [ ] add next steps

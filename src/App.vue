@@ -9,8 +9,10 @@
     <!-- Search Bar -->
     <div class="mt-6 px-4">
       <div class="max-w-xl mx-auto">
-        <input type="text" v-model="searchTerm" placeholder="Search for GIFs..." class="w-full p-2 border rounded">
-        <button class="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Search</button>
+        <form @submit.prevent="searchGifs({ q: this.searchTerm })">
+          <input type="text" v-model="searchTerm" placeholder="Search for GIFs..." class="w-full p-2 border rounded">
+          <input type="submit" class="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" value="Search">
+        </form>
       </div>
     </div>
 
