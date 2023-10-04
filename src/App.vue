@@ -18,7 +18,7 @@
 
     <!-- Related Bar -->
     <div class="mt-6 px-4">
-      <h1>Related:</h1>
+      <h1 class="text text-xl">Related:</h1>
     </div>
 
     <!-- Related GIF Grid -->
@@ -49,26 +49,19 @@ export default {
   methods: {
     async loadRelated(gif) {
       console.log('loadRelated', gif)
-      const api_key = process.env.VUE_APP_GIPHY_API
 
       const query = {
         q: gif.title
       }
 
-      const default_params = {
-        limit: 5,
-        rating: 'g',
-        bundle: 'messaging_non_clips',
-        api_key,
-      }
-
-      const params = { ...default_params, ...query }
-
-      const response = await Axios.get(`https://api.giphy.com/v1/gifs/search`, { params });
-      this.relatedGifs = response.data.data;
+      this.relatedGifs = await this.search(query)
     },
 
     async searchGifs(query) {
+      this.gifs = await this.search(query);
+    },
+
+    async search(query) {
       const api_key = process.env.VUE_APP_GIPHY_API
 
       const default_params = {
@@ -81,8 +74,9 @@ export default {
       const params = { ...default_params, ...query }
 
       const response = await Axios.get(`https://api.giphy.com/v1/gifs/search`, { params });
-      this.gifs = response.data.data;
+      return response.data.data
     },
+
   },
 
   async mounted() {
