@@ -8,12 +8,7 @@
 
     <!-- Search Bar -->
     <div class="mt-6 px-4">
-      <div class="max-w-xl mx-auto">
-        <form @submit.prevent="searchGifs({ q: this.searchTerm })">
-          <input type="text" v-model="searchTerm" placeholder="Search for GIFs..." class="w-full p-2 border rounded">
-          <input type="submit" class="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" value="Search">
-        </form>
-      </div>
+      <SearchComponent @search="searchGifs" />
     </div>
 
 
@@ -37,16 +32,21 @@
 
 <script>
 import Axios from 'axios';
+import SearchComponent from './components/SearchComponent';
+
 
 export default {
+  components: {
+    SearchComponent,
+  },
   data() {
     return {
       gifs: [],
-      searchTerm: 'Welcome!'
     };
   },
   methods: {
     async searchGifs(query) {
+      console.log(query)
       const api_key = process.env.VUE_APP_GIPHY_API
 
       const default_params = {
@@ -64,7 +64,7 @@ export default {
   },
 
   async mounted() {
-    await this.searchGifs({ q: this.searchTerm })
+    await this.searchGifs({ q: 'Welcome back!' })
   }
 };
 </script>
