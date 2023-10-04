@@ -30,9 +30,9 @@
 </template>
 
 <script>
-import Axios from 'axios';
 import SearchComponent from './components/SearchComponent';
 import GridComponent from './components/GridComponent';
+import GiphyAPIService from './services/GiphyAPIService';
 
 
 export default {
@@ -54,28 +54,13 @@ export default {
         q: gif.title
       }
 
-      this.relatedGifs = await this.search(query)
+      this.relatedGifs = await GiphyAPIService.search(query)
     },
 
     async searchGifs(query) {
-      this.gifs = await this.search(query);
+      this.gifs = await GiphyAPIService.search(query);
     },
 
-    async search(query) {
-      const api_key = process.env.VUE_APP_GIPHY_API
-
-      const default_params = {
-        limit: 5,
-        rating: 'g',
-        bundle: 'messaging_non_clips',
-        api_key,
-      }
-
-      const params = { ...default_params, ...query }
-
-      const response = await Axios.get(`https://api.giphy.com/v1/gifs/search`, { params });
-      return response.data.data
-    },
 
   },
 
