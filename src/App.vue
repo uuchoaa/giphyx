@@ -11,9 +11,19 @@
       <SearchComponent @search="searchGifs" />
     </div>
 
-    <!-- GIF Grid -->
+    <!-- Search GIF Grid -->
     <div class="px-4 mt-6">
-      <GridComponent :gifs="gifs" />
+      <GridComponent :gifs="gifs" @selected="loadRelated" />
+    </div>
+
+    <!-- Related Bar -->
+    <div class="mt-6 px-4">
+      <h1>Related:</h1>
+    </div>
+
+    <!-- Related GIF Grid -->
+    <div class="px-4 mt-6">
+      <GridComponent :gifs="relatedGifs" />
     </div>
 
   </div>
@@ -33,9 +43,31 @@ export default {
   data() {
     return {
       gifs: [],
+      relatedGifs: []
     };
   },
   methods: {
+    async loadRelated(gif) {
+      console.log('loadRelated', gif)
+      const api_key = process.env.VUE_APP_GIPHY_API
+
+      const query = {
+        q: gif.title
+      }
+
+      const default_params = {
+        limit: 5,
+        rating: 'g',
+        bundle: 'messaging_non_clips',
+        api_key,
+      }
+
+      const params = { ...default_params, ...query }
+
+      const response = await Axios.get(`https://api.giphy.com/v1/gifs/search`, { params });
+      this.relatedGifs = response.data.data;
+    },
+
     async searchGifs(query) {
       const api_key = process.env.VUE_APP_GIPHY_API
 
