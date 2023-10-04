@@ -6,6 +6,15 @@
         <h1 class="text-2xl font-bold">Giphy Search App</h1>
     </div>
 
+    <!-- Search Bar -->
+    <div class="mt-6 px-4">
+      <div class="max-w-xl mx-auto">
+        <input type="text" v-model="searchTerm" placeholder="Search for GIFs..." class="w-full p-2 border rounded">
+        <button class="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Search</button>
+      </div>
+    </div>
+
+
     <!-- GIF Grid -->
     <div class="px-4 mt-6">
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -31,19 +40,29 @@ export default {
   data() {
     return {
       gifs: [],
+      searchTerm: 'Welcome!'
     };
   },
   methods: {
-    async searchGifs() {
+    async searchGifs(query) {
       const api_key = process.env.VUE_APP_GIPHY_API
-      const response = await Axios.get(`https://api.giphy.com/v1/gifs/trending?api_key=${api_key}&limit=5`);
-      this.gifs = response.data.data;
 
+      const default_params = {
+        limit: 5,
+        rating: 'g',
+        bundle: 'messaging_non_clips',
+        api_key,
+      }
+
+      const params = { ...default_params, ...query }
+
+      const response = await Axios.get(`https://api.giphy.com/v1/gifs/search`, { params });
+      this.gifs = response.data.data;
     },
   },
 
   async mounted() {
-    await this.searchGifs()
+    await this.searchGifs({ q: this.searchTerm })
   }
 };
 </script>
